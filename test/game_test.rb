@@ -18,4 +18,16 @@ class GameTest < Minitest::Test
     game = Game.new(turn)
     assert_instance_of Game, game
   end
+
+  def test_it_has_attributes
+    card1 = Card.new(:heart, '3', 3)
+    card2 = Card.new(:diamond, '2', 2)
+    deck1 = Deck.new([card1])
+    deck2 = Deck.new([card2])
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+    turn = Turn.new(player1, player2)
+    game = Game.new(turn)
+    assert_equal turn, game.turn
+  end
 end
