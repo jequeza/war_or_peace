@@ -55,8 +55,12 @@ class Turn
   end
 
   def award_spoils(player_obj)
-    @spoils_of_war.each do |card|
-      player_obj.deck.cards << card
+    if player_obj == "No Winner"
+      name = "No Winner"
+    else
+      @spoils_of_war.each do |card|
+        player_obj.deck.cards << card
+      end
     end
   end
 end
